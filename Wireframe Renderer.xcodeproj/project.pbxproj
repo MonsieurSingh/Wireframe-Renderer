@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		B3C888282EBEBF0200988D28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3C888122EBEBD6100988D28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C888242EBEBECB00988D28;
+			remoteInfo = Makefile;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		B3C888182EBEBD6100988D28 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,10 +29,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B3645DAB2EBFCAEE002C8C9F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3C8881A2EBEBD6100988D28 /* Wireframe Renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Wireframe Renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B3645DAA2EBF5B9D002C8C9F /* test_maps */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = test_maps;
+			sourceTree = "<group>";
+		};
 		B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Wireframe Renderer";
@@ -44,6 +60,8 @@
 		B3C888112EBEBD6100988D28 = {
 			isa = PBXGroup;
 			children = (
+				B3645DAB2EBFCAEE002C8C9F /* .gitignore */,
+				B3645DAA2EBF5B9D002C8C9F /* test_maps */,
 				B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */,
 				B3C8881B2EBEBD6100988D28 /* Products */,
 			);
@@ -59,6 +77,25 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		B3C888242EBEBECB00988D28 /* Makefile */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = B3C888252EBEBECB00988D28 /* Build configuration list for PBXLegacyTarget "Makefile" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/teghjyot/Developer/minilibx;
+			dependencies = (
+			);
+			name = Makefile;
+			packageProductDependencies = (
+			);
+			passBuildSettingsInEnvironment = 1;
+			productName = Makefile;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		B3C888192EBEBD6100988D28 /* Wireframe Renderer */ = {
 			isa = PBXNativeTarget;
@@ -71,8 +108,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				B3C888292EBEBF0200988D28 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				B3645DAA2EBF5B9D002C8C9F /* test_maps */,
 				B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */,
 			);
 			name = "Wireframe Renderer";
@@ -94,6 +133,9 @@
 					B3C888192EBEBD6100988D28 = {
 						CreatedOnToolsVersion = 26.1;
 					};
+					B3C888242EBEBECB00988D28 = {
+						CreatedOnToolsVersion = 26.1;
+					};
 				};
 			};
 			buildConfigurationList = B3C888152EBEBD6100988D28 /* Build configuration list for PBXProject "Wireframe Renderer" */;
@@ -111,6 +153,7 @@
 			projectRoot = "";
 			targets = (
 				B3C888192EBEBD6100988D28 /* Wireframe Renderer */,
+				B3C888242EBEBECB00988D28 /* Makefile */,
 			);
 		};
 /* End PBXProject section */
@@ -124,6 +167,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3C888292EBEBF0200988D28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C888242EBEBECB00988D28 /* Makefile */;
+			targetProxy = B3C888282EBEBF0200988D28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B3C8881F2EBEBD6100988D28 /* Debug */ = {
@@ -164,7 +215,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = c23;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -225,7 +276,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = c23;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -257,6 +308,31 @@
 			};
 			name = Release;
 		};
+		B3C888262EBEBECB00988D28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B3C888272EBEBECB00988D28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -274,6 +350,15 @@
 			buildConfigurations = (
 				B3C888222EBEBD6100988D28 /* Debug */,
 				B3C888232EBEBD6100988D28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3C888252EBEBECB00988D28 /* Build configuration list for PBXLegacyTarget "Makefile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C888262EBEBECB00988D28 /* Debug */,
+				B3C888272EBEBECB00988D28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
