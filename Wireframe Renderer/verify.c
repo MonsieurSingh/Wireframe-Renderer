@@ -16,8 +16,9 @@ static int	init_map_parser(t_map_parser *parser, FILE *fp, t_map *map)
 	parser->line = NULL;
 	parser->cap = 0;
 	parser->nread = 0;
-	parser->width = -1;
-	parser->height = 0;
+	map->width = -1;
+	map->height = 0;
+	map->default_color = 0x00FFFFFF;
 	return EXIT_SUCCESS;
 }
 
@@ -70,16 +71,16 @@ static int	process_map_lines(t_map_parser *parser)
 		int tokens = count_tokens_ws(parser->line);
 		if (tokens == 0)
 			continue;
-		if (parser->width == -1)
-			parser->width = tokens;
-		else if (tokens != parser->width)
+		if (parser->map->width == -1)
+			parser->map->width = tokens;
+		else if (tokens != parser->map->width)
 		{
 			free(parser->line);
 			return EXIT_FAILURE; // non-rectangular map
 		}
-		parser->height++;
+		parser->map->height++;
 	}
-	if (parser->width <= 0 || parser->height <= 0)
+	if (parser->map->width <= 0 || parser->map->height <= 0)
 		return EXIT_FAILURE;
 	return EXIT_SUCCESS;
 }
@@ -95,26 +96,6 @@ static int	check_map(FILE *fp, t_map *map)
 		free(parser.line);
 		return EXIT_FAILURE;
 	}
-	map->width = parser.width;
-	map->height = parser.height;
-	map->default_color = 0x00FFFFFF;
-	return EXIT_SUCCESS;
-}
-
-static int allocate_map(FILE *fp, t_map **map)
-{
-	if (*map == NULL)
-	{
-		*map = (t_map *)malloc(sizeof(t_map));
-		if (*map == NULL)
-		{
-			fprintf(stderr, "error: out of memory\n");
-			fclose(fp);
-			return EXIT_FAILURE;
-		}
-	}
-	(*map)->width = 0;
-	(*map)->height = 0;
 	return EXIT_SUCCESS;
 }
 
@@ -135,8 +116,7 @@ int verify_input(int argc, const char *argv[], t_map **map)
 		fprintf(stderr, "%s: %s\n", path, strerror(errno));
 		return EXIT_FAILURE;
 	}
-	if (allocate_map(fp, map))
-		return EXIT_FAILURE;
+	*map = (t_map *)malloc(sizeof(t_map));
 	if (check_map(fp, *map))
 	{
 		fclose(fp);

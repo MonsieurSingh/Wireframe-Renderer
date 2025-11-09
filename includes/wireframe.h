@@ -12,9 +12,12 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <libc.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "../minilibx_macos/mlx.h"
 
 typedef struct s_point
 {
@@ -39,9 +42,30 @@ typedef struct s_map_parser
 	char	*line;		// line buffer
 	size_t	cap;		// capacity
 	ssize_t nread;		// bytes read
-	int		width;		// map width detected
-	int		height;		// map height detected
 }	t_map_parser;
+
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}	t_image;
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*mlx_win;
+}	t_mlx;
+
+typedef struct s_data
+{
+	t_mlx		*minilibx;
+	t_map		*map;
+}	t_data;
 
 typedef struct s_vec3
 {
@@ -50,13 +74,9 @@ typedef struct s_vec3
 	float z;
 }	t_vec3;
 
-typedef struct s_data
-{
-	t_map	*map;
-}	t_data;
-
 int		verify_input(int argc, const char *argv[], t_map **map);
 int		create_points(const char *argv[], t_map **map);
 void	print_map(t_map *map);
+void	free_points(t_map *map);
 
 #endif /* wireframe_h */
