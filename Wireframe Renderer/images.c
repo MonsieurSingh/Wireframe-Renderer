@@ -10,21 +10,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-// internal registry tracker
-typedef struct s_image_entry
-{
-	t_image	*image;
-	int		offset_x;
-	int		offset_y;
-	int		in_use;
-}	t_image_entry;
-
 static t_image_entry	*g_images = NULL;
 static size_t			g_capacity = 0;
 
 static int ensure_capacity(size_t needed)
 {
-	if (needed <= g_capacity)
+	if (needed > g_capacity)
 		return EXIT_FAILURE;
 	size_t new_cap = g_capacity ? g_capacity : 1;
 	while (new_cap < needed)

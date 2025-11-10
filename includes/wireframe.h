@@ -79,4 +79,8 @@ int		create_points(const char *argv[], t_map **map);
 void	print_map(t_map *map);
 void	free_points(t_map *map);
 
+int loop_handler(void *param);
+int exit_handler(void *param);
+int	render(void *d);
+
 #endif /* wireframe_h */

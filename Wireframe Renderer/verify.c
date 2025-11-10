@@ -63,6 +63,8 @@ static int	skip_blank_lines(char *line, ssize_t nread)
 
 static int	process_map_lines(t_map_parser *parser)
 {
+	parser->line = NULL;
+	parser->cap = 0;
 	while ((parser->nread =
 			getline(&parser->line, &parser->cap, parser->fp)) != -1)
 	{
@@ -79,9 +81,14 @@ static int	process_map_lines(t_map_parser *parser)
 			return EXIT_FAILURE; // non-rectangular map
 		}
 		parser->map->height++;
+		free(parser->line);
+		parser->line = NULL;
 	}
 	if (parser->map->width <= 0 || parser->map->height <= 0)
 		return EXIT_FAILURE;
+	free(parser->line);
+	parser->line = NULL;
+	parser->cap = 0;
 	return EXIT_SUCCESS;
 }
 

@@ -10,6 +10,15 @@
 
 #include "wireframe.h"
 
+// internal registry tracker
+typedef struct s_image_entry
+{
+	t_image	*image;
+	int		offset_x;
+	int		offset_y;
+	int		in_use;
+}	t_image_entry;
+
 typedef enum e_image_id
 {
 	IMG_MAIN = 0,

@@ -15,9 +15,9 @@ void init(t_data *data)
 	if (data->minilibx->mlx == NULL)
 		exit(EXIT_FAILURE);
 	data->minilibx->mlx_win = mlx_new_window(data->minilibx->mlx,
-											 1920, 1200, "Wireframe Renderer");
+											 1000, 1000, "Wireframe Renderer");
 	images_init(data, 2);
-	images_add(data, 0, 1920, 1200, 0, 0);
+	images_add(data, IMG_MAIN, 600, 600, 200, 200);
 }
 
 int main(int argc, const char * argv[])
@@ -30,9 +30,11 @@ int main(int argc, const char * argv[])
 	if (create_points(argv, &data.map))
 		return EXIT_FAILURE;
 	print_map(data.map);
-	free_points(data.map);
 	init(&data);
+	mlx_hook(data.minilibx->mlx_win, 17, 0, exit_handler, &data);
+	mlx_loop_hook(data.minilibx->mlx, loop_handler, &data);
 	mlx_loop(data.minilibx->mlx);
+	free_points(data.map);
 	images_free(&data);
 	return (EXIT_SUCCESS);
 }

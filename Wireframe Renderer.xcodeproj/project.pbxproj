@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3D0E3E82EBFF69C008E339F /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D0E3D12EBFF638008E339F /* libmlx.a */; };
 		B3DDC10B2EBFF335006180C5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DDC10A2EBFF335006180C5 /* AppKit.framework */; };
 		B3DDC10D2EBFF33A006180C5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DDC10C2EBFF33A006180C5 /* OpenGL.framework */; };
 		B3DDC10F2EBFF345006180C5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DDC10E2EBFF345006180C5 /* CoreFoundation.framework */; };
@@ -39,36 +38,9 @@
 /* Begin PBXFileReference section */
 		B3645DAB2EBFCAEE002C8C9F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3C8881A2EBEBD6100988D28 /* Wireframe Renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Wireframe Renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3D0E3C12EBFF638008E339F /* mlx.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx.1; sourceTree = "<group>"; };
-		B3D0E3C22EBFF638008E339F /* mlx_loop.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_loop.1; sourceTree = "<group>"; };
-		B3D0E3C32EBFF638008E339F /* mlx_new_image.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_new_image.1; sourceTree = "<group>"; };
-		B3D0E3C42EBFF638008E339F /* mlx_new_window.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_new_window.1; sourceTree = "<group>"; };
-		B3D0E3C52EBFF638008E339F /* mlx_pixel_put.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_pixel_put.1; sourceTree = "<group>"; };
-		B3D0E3C72EBFF638008E339F /* mlx.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx.1; sourceTree = "<group>"; };
-		B3D0E3C82EBFF638008E339F /* mlx_loop.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_loop.1; sourceTree = "<group>"; };
-		B3D0E3C92EBFF638008E339F /* mlx_new_image.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_new_image.1; sourceTree = "<group>"; };
-		B3D0E3CA2EBFF638008E339F /* mlx_new_window.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_new_window.1; sourceTree = "<group>"; };
-		B3D0E3CB2EBFF638008E339F /* mlx_pixel_put.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mlx_pixel_put.1; sourceTree = "<group>"; };
-		B3D0E3CE2EBFF638008E339F /* _README_ */ = {isa = PBXFileReference; lastKnownFileType = text; path = _README_; sourceTree = "<group>"; };
-		B3D0E3CF2EBFF638008E339F /* font.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = font.c; sourceTree = "<group>"; };
-		B3D0E3D02EBFF638008E339F /* font.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = font.xcf; sourceTree = "<group>"; };
-		B3D0E3D12EBFF638008E339F /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
-		B3D0E3D22EBFF638008E339F /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		B3D0E3D32EBFF638008E339F /* mlx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mlx.h; sourceTree = "<group>"; };
-		B3D0E3D42EBFF638008E339F /* mlx_init_loop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mlx_init_loop.m; sourceTree = "<group>"; };
-		B3D0E3D52EBFF638008E339F /* mlx_int.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mlx_int.h; sourceTree = "<group>"; };
-		B3D0E3D62EBFF638008E339F /* mlx_int_str_to_wordtab.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_int_str_to_wordtab.c; sourceTree = "<group>"; };
-		B3D0E3D72EBFF638008E339F /* mlx_new_image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mlx_new_image.m; sourceTree = "<group>"; };
-		B3D0E3D82EBFF638008E339F /* mlx_new_window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mlx_new_window.h; sourceTree = "<group>"; };
-		B3D0E3D92EBFF638008E339F /* mlx_new_window.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mlx_new_window.m; sourceTree = "<group>"; };
-		B3D0E3DA2EBFF638008E339F /* mlx_rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_rgb.c; sourceTree = "<group>"; };
-		B3D0E3DB2EBFF638008E339F /* mlx_shaders.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_shaders.c; sourceTree = "<group>"; };
-		B3D0E3DC2EBFF638008E339F /* mlx_xpm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_xpm.c; sourceTree = "<group>"; };
-		B3D9FB972EBFD17700760681 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmlx.a; path = ../minilibx/libmlx.a; sourceTree = "<group>"; };
 		B3DDC10A2EBFF335006180C5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B3DDC10C2EBFF33A006180C5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B3DDC10E2EBFF345006180C5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		B3DDC1102EBFF40B006180C5 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmlx.a; path = ../fil_de_fer/minilibx_macos/libmlx.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -87,6 +59,11 @@
 			path = includes;
 			sourceTree = "<group>";
 		};
+		B3F729BD2EC0FFA30073EB4E /* minilibx_macos */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = minilibx_macos;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3D0E3E82EBFF69C008E339F /* libmlx.a in Frameworks */,
 				B3DDC10F2EBFF345006180C5 /* CoreFoundation.framework in Frameworks */,
 				B3DDC10D2EBFF33A006180C5 /* OpenGL.framework in Frameworks */,
 				B3DDC10B2EBFF335006180C5 /* AppKit.framework in Frameworks */,
@@ -107,8 +83,8 @@
 		B3C888112EBEBD6100988D28 = {
 			isa = PBXGroup;
 			children = (
-				B3D0E3DD2EBFF638008E339F /* minilibx_macos */,
 				B3645DAB2EBFCAEE002C8C9F /* .gitignore */,
+				B3F729BD2EC0FFA30073EB4E /* minilibx_macos */,
 				B3D9FB922EBFCD5100760681 /* includes */,
 				B3645DAA2EBF5B9D002C8C9F /* test_maps */,
 				B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */,
@@ -125,70 +101,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B3D0E3C62EBFF638008E339F /* man1 */ = {
-			isa = PBXGroup;
-			children = (
-				B3D0E3C12EBFF638008E339F /* mlx.1 */,
-				B3D0E3C22EBFF638008E339F /* mlx_loop.1 */,
-				B3D0E3C32EBFF638008E339F /* mlx_new_image.1 */,
-				B3D0E3C42EBFF638008E339F /* mlx_new_window.1 */,
-				B3D0E3C52EBFF638008E339F /* mlx_pixel_put.1 */,
-			);
-			path = man1;
-			sourceTree = "<group>";
-		};
-		B3D0E3CC2EBFF638008E339F /* man3 */ = {
-			isa = PBXGroup;
-			children = (
-				B3D0E3C72EBFF638008E339F /* mlx.1 */,
-				B3D0E3C82EBFF638008E339F /* mlx_loop.1 */,
-				B3D0E3C92EBFF638008E339F /* mlx_new_image.1 */,
-				B3D0E3CA2EBFF638008E339F /* mlx_new_window.1 */,
-				B3D0E3CB2EBFF638008E339F /* mlx_pixel_put.1 */,
-			);
-			path = man3;
-			sourceTree = "<group>";
-		};
-		B3D0E3CD2EBFF638008E339F /* man */ = {
-			isa = PBXGroup;
-			children = (
-				B3D0E3C62EBFF638008E339F /* man1 */,
-				B3D0E3CC2EBFF638008E339F /* man3 */,
-			);
-			path = man;
-			sourceTree = "<group>";
-		};
-		B3D0E3DD2EBFF638008E339F /* minilibx_macos */ = {
-			isa = PBXGroup;
-			children = (
-				B3D0E3CD2EBFF638008E339F /* man */,
-				B3D0E3CE2EBFF638008E339F /* _README_ */,
-				B3D0E3CF2EBFF638008E339F /* font.c */,
-				B3D0E3D02EBFF638008E339F /* font.xcf */,
-				B3D0E3D12EBFF638008E339F /* libmlx.a */,
-				B3D0E3D22EBFF638008E339F /* Makefile */,
-				B3D0E3D32EBFF638008E339F /* mlx.h */,
-				B3D0E3D42EBFF638008E339F /* mlx_init_loop.m */,
-				B3D0E3D52EBFF638008E339F /* mlx_int.h */,
-				B3D0E3D62EBFF638008E339F /* mlx_int_str_to_wordtab.c */,
-				B3D0E3D72EBFF638008E339F /* mlx_new_image.m */,
-				B3D0E3D82EBFF638008E339F /* mlx_new_window.h */,
-				B3D0E3D92EBFF638008E339F /* mlx_new_window.m */,
-				B3D0E3DA2EBFF638008E339F /* mlx_rgb.c */,
-				B3D0E3DB2EBFF638008E339F /* mlx_shaders.c */,
-				B3D0E3DC2EBFF638008E339F /* mlx_xpm.c */,
-			);
-			path = minilibx_macos;
-			sourceTree = "<group>";
-		};
 		B3D9FB962EBFD17700760681 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B3DDC1102EBFF40B006180C5 /* libmlx.a */,
 				B3DDC10E2EBFF345006180C5 /* CoreFoundation.framework */,
 				B3DDC10C2EBFF33A006180C5 /* OpenGL.framework */,
 				B3DDC10A2EBFF335006180C5 /* AppKit.framework */,
-				B3D9FB972EBFD17700760681 /* libmlx.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -353,8 +271,8 @@
 					/opt/X11/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"../minilibx/**",
 					/opt/X11/lib,
+					"\"$(SRCROOT)/minilibx_macos\"",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
@@ -417,8 +335,8 @@
 					/opt/X11/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"../minilibx/**",
 					/opt/X11/lib,
+					"\"$(SRCROOT)/minilibx_macos\"",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
@@ -440,6 +358,7 @@
 				OTHER_LDFLAGS = (
 					"-lXext",
 					"-lX11",
+					"-lmlx",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -456,6 +375,7 @@
 				OTHER_LDFLAGS = (
 					"-lXext",
 					"-lX11",
+					"-lmlx",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
