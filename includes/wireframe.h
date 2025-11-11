@@ -19,13 +19,8 @@
 
 #include "../minilibx_macos/mlx.h"
 
-typedef struct s_point
-{
-	int x;
-	int y;
-	int z;
-	unsigned int color;
-}	t_point;
+#include "matrix.h"
+#include "input.h"
 
 typedef struct s_map
 {
@@ -65,14 +60,10 @@ typedef struct s_data
 {
 	t_mlx		*minilibx;
 	t_map		*map;
+	t_image		**images;
+	t_transform	xform;
 }	t_data;
 
-typedef struct s_vec3
-{
-	float x;
-	float y;
-	float z;
-}	t_vec3;
 
 int		verify_input(int argc, const char *argv[], t_map **map);
 int		create_points(const char *argv[], t_map **map);

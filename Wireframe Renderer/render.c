@@ -6,9 +6,6 @@
 //
 
 #include "render.h"
-#include "wireframe.h"
-#include "images.h"
-#include <math.h>
 
 int interpolateColor(int color1, int color2, float t)
 {
@@ -25,16 +22,6 @@ int interpolateColor(int color1, int color2, float t)
 	int b = b1 + (b2 - b1) * t;
 	
 	return (r << 16) | (g << 8) | b;
-}
-
-t_vec3 project_point(int i, int j, t_map *map)
-{
-	t_vec3	v;
-	
-	v.x = j;
-	v.y = i;
-	v.z = map->points[i][j].z;
-	return v;
 }
 
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
@@ -71,27 +58,53 @@ void plotLine(t_image *image, int x0, int y0, int x1, int y1, int color1, int co
 	}
 }
 
-int	render(void *d)
+void	render_background(t_image *img, int color)
 {
-	t_data	*data;
-	t_image	*img;
-	int		scale;
-
-	data = d;
-	scale = 20;
-	img = images_get(IMG_MAIN);
-	for (int y = 0; y < (img->height / scale) - 1; y++) {
-		for (int x = 0; x < (img->width / scale) - 1; x++) {
-			plotLine(img, x * scale, y * scale, (x + 1) * scale, y * scale, 0x00FFFFFF, 0x00FFFFFF);
-			plotLine(img, x * scale, y * scale, (x + 1) * scale, y * scale, 0x00FFFFFF, 0x00FFFFFF);
-			plotLine(img, x * scale, y * scale, x * scale, (y + 1) * scale, 0x00FFFFFF, 0x00FFFFFF);
-			plotLine(img, x * scale, (y + 1) * scale, (x + 1) * scale, y * scale, 0x00FFFFFF, 0x00FFFFFF);
-			if (x + 1 == (img->width / scale) - 1)
-				plotLine(img, (x + 1) * scale, y * scale, (x + 1) * scale, (y + 1) * scale, 0x00FFFFFF, 0x00FFFFFF);
-			if (y + 1 == (img->height / scale) - 1)
-				plotLine(img, x * scale, (y + 1) * scale, (x + 1) * scale, (y + 1) * scale, 0x00FFFFFF, 0x00FFFFFF);
+	for (int i = 0; i < img->width; i++) {
+		for (int j = 0; j < img->height; j++) {
+			my_mlx_pixel_put(img, i, j, color);
 		}
 	}
-	images_draw_all(data);
+}
+
+int render(void *d)
+{
+	t_data *data;
+	t_image *img;
+	t_image *ui;
+	int scale;
+	t_mat4 world_matrix;
+	t_vec4 transformed_start, transformed_end1, transformed_end2;
+	
+	data = d;
+	scale = 20;
+	put_ui(data);
+	img = data->images[0];
+	world_matrix = transform_world_matrix(data->xform, img->width, img->height);
+	for (int y = 0; y < (img->height / scale) - 1; y++) {
+		for (int x = 0; x < (img->width / scale) - 1; x++) {
+			t_vec4 start = { x * scale, y * scale, 0, 1 };
+			t_vec4 end1 = { (x + 1) * scale, y * scale, 0, 1 };
+			t_vec4 end2 = { x * scale, (y + 1) * scale, 0, 1 };
+			transformed_start = mat_vec_mul4(world_matrix, start);
+			transformed_end1 = mat_vec_mul4(world_matrix, end1);
+			transformed_end2 = mat_vec_mul4(world_matrix, end2);
+			plotLine(img, transformed_start.x, transformed_start.y, transformed_end1.x, transformed_end1.y, 0x00FFFFFF, 0x00FFFFFF);
+			plotLine(img, transformed_start.x, transformed_start.y, transformed_end2.x, transformed_end2.y, 0x00FFFFFF, 0x00FFFFFF);
+			plotLine(img, transformed_end1.x, transformed_end1.y, transformed_end2.x, transformed_end2.y, 0x00FFFFFF, 0x00FFFFFF);
+			if (x + 1 == (img->width / scale) - 1)
+				plotLine(img, transformed_end1.x, transformed_end1.y, transformed_end1.x, transformed_end2.y, 0x00FFFFFF, 0x00FFFFFF);
+			if (y + 1 == (img->height / scale) - 1)
+				plotLine(img, transformed_end2.x, transformed_end2.y, transformed_end1.x, transformed_end2.y, 0x00FFFFFF, 0x00FFFFFF);
+		}
+	}
+
+	mlx_put_image_to_window(data->minilibx->mlx,
+							data->minilibx->mlx_win,
+							data->images[0]->img,
+							200,
+							200);
+	render_background(img, 0x0000aaaa);
 	return EXIT_SUCCESS;
 }
+

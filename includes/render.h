@@ -8,6 +8,8 @@
 #ifndef render_h
 #define render_h
 
-#include <stdio.h>
+#include "wireframe.h"
+#include "images.h"
+#include "ui.h"
 
 #endif /* render_h */
