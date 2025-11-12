@@ -71,7 +71,6 @@ int render(void *d)
 {
 	t_data *data;
 	t_image *img;
-	t_image *ui;
 	int scale;
 	t_mat4 world_matrix;
 	t_vec4 transformed_start, transformed_end1, transformed_end2;
@@ -80,7 +79,7 @@ int render(void *d)
 	scale = 20;
 	put_ui(data);
 	img = data->images[0];
-	world_matrix = transform_world_matrix(data->xform, img->width, img->height);
+	world_matrix = transform_world_matrix(data->state, img->width, img->height);
 	for (int y = 0; y < (img->height / scale) - 1; y++) {
 		for (int x = 0; x < (img->width / scale) - 1; x++) {
 			t_vec4 start = { x * scale, y * scale, 0, 1 };

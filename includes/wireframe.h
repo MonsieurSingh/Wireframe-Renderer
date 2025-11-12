@@ -58,12 +58,11 @@ typedef struct s_mlx
 
 typedef struct s_data
 {
-	t_mlx		*minilibx;
-	t_map		*map;
-	t_image		**images;
-	t_transform	xform;
+	t_mlx			*minilibx;
+	t_map			*map;
+	t_image			**images;
+	t_render_state	state;
 }	t_data;
-
 
 int		verify_input(int argc, const char *argv[], t_map **map);
 int		create_points(const char *argv[], t_map **map);

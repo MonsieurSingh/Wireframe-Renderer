@@ -19,7 +19,8 @@ void init(t_data *data)
 											 1000, 1000, "Wireframe Renderer");
 	image_init(data);
 	image_add(data, 600, 600);
-	data->xform = (t_transform){{ 10, 10, 0 }, { 0, 0, 0 }, { 1, 1, 1 }};
+	data->state.model = (t_model){{ 10, 10, 0 }, { 0, 0, 0 }, { 1, 1, 1 }};
+	data->state.camera = (t_camera){{ 0.0f, 0.0f, 5.0f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }};
 }
 
 int main(int argc, const char * argv[])

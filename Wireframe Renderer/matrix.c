@@ -18,6 +18,44 @@ t_mat4	identity4(float i)
 	};
 }
 
+t_vec3 minus(t_vec3 a, t_vec3 b)
+{
+	return (t_vec3){
+		a.x - b.x,
+		a.y - b.y,
+		a.z - b.z,
+	};
+}
+
+float dot(t_vec3 a, t_vec3 b)
+{
+	return a.x * b.x + a.y * b.y + a.z * b.z;
+}
+
+t_vec3	cross(t_vec3 a, t_vec3 b)
+{
+	t_vec3	result;
+	
+	result.x = a.y * b.z - a.z * b.y;
+	result.y = a.z * b.x - a.x * b.z;
+	result.z = a.x * b.y - a.y * b.x;
+	return result;
+}
+
+t_vec3	normalize(t_vec3 v)
+{
+	float	length;
+	
+	length = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	if (length > 0.0001f)
+	{
+		v.x /= length;
+		v.y /= length;
+		v.z /= length;
+	}
+	return v;
+}
+
 t_vec4	mat_vec_mul4(t_mat4 mat, t_vec4 vec)
 {
 	t_vec4 result = {0};
@@ -105,6 +143,24 @@ t_mat4	rotate_4(float alpha, float beta, float gamma)
 	return mat_mul4(mat_mul4(rotate_x4(alpha), rotate_y4(beta)), rotate_z4(gamma));
 }
 
+t_mat4 look_at4(t_vec3 eye, t_vec3 target, t_vec3 up)
+{
+	t_vec3	forward = normalize(minus(eye, target));
+	t_vec3	right = normalize(cross(up, forward));
+	t_vec3	cam_up = cross(forward, right);
+	
+	t_mat4 view = {
+		right.x,   cam_up.x,   forward.x,   0,
+		right.y,   cam_up.y,   forward.y,   0,
+		right.z,   cam_up.z,   forward.z,   0,
+		-dot(right, eye),
+		-dot(cam_up, eye),
+		-dot(forward, eye),
+		1
+	};
+	return view;
+}
+
 t_mat4	world_4(t_vec3 translate, t_vec3 rotate, t_vec3 scale)
 {
 //	World matrix = Translate * (Rotate * Scale)
@@ -113,16 +169,21 @@ t_mat4	world_4(t_vec3 translate, t_vec3 rotate, t_vec3 scale)
 							scale4(scale.x, scale.y, scale.z)));
 }
 
-t_mat4	transform_world_matrix(t_transform t, int width, int height)
+t_mat4	transform_world_matrix(t_render_state state, int width, int height)
 {
 	t_mat4	translation_center;
 	t_mat4	translation_back;
+	t_model		m;
+	t_camera	cam;
 
 	translation_center = translate4(width / 2, height / 2, 0);
 	translation_back = translate4(-width / 2, -height / 2, 0);
+	m = state.model;
+	cam = state.camera;
 	return mat_mul4(translation_center,
-					mat_mul4(world_4(t.translate, t.rotate, t.scale),
-							 translation_back)
+					mat_mul4(look_at4(cam.eye, cam.target, cam.up),
+					mat_mul4(world_4(m.translate, m.rotate, m.scale),
+							 translation_back))
 					);
 }
 

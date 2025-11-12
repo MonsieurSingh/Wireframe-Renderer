@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void put_info(t_mlx *minilibx, t_transform *xform, int dx, int dy)
+static void put_info(t_mlx *minilibx, t_model *xform, int dx, int dy)
 {
 	//TODO
 }
@@ -17,5 +17,5 @@ static void put_info(t_mlx *minilibx, t_transform *xform, int dx, int dy)
 void	put_ui(t_data *data)
 {
 	
-	put_info(data->minilibx, &data->xform, 10, 10);
+//	put_info(data->minilibx, &data->xform, 10, 10);
 }
