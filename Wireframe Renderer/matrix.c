@@ -65,6 +65,13 @@ t_vec4	mat_vec_mul4(t_mat4 mat, t_vec4 vec)
 	for (int i = 0; i < 4; i++)
 		for (int j = 0; j < 4; j++)
 			r[i] += mat.m[i * 4 + j] * v[j];
+	if (result.w != 0.0f && result.w != 1.0f)
+	{
+		result.x /= result.w;
+		result.y /= result.w;
+		result.z /= result.w;
+		result.w = 1.0f;
+	}
 	return result;
 }
 
@@ -145,25 +152,32 @@ t_mat4	rotate_4(float alpha, float beta, float gamma)
 
 t_mat4 look_at4(t_vec3 eye, t_vec3 target, t_vec3 up)
 {
-	t_vec3	forward = normalize(minus(eye, target));
-	t_vec3	right = normalize(cross(up, forward));
-	t_vec3	cam_up = cross(forward, right);
-	
+	t_vec3 f = normalize((t_vec3){ target.x - eye.x, target.y - eye.y, target.z - eye.z });
+	t_vec3 s = normalize(cross(f, up));
+	t_vec3 u = cross(s, f);
+
 	t_mat4 view = {
-		right.x,   cam_up.x,   forward.x,   0,
-		right.y,   cam_up.y,   forward.y,   0,
-		right.z,   cam_up.z,   forward.z,   0,
-		-dot(right, eye),
-		-dot(cam_up, eye),
-		-dot(forward, eye),
-		1
+		s.x,  s.y,  s.z,  -dot(s, eye),
+		u.x,  u.y,  u.z,  -dot(u, eye),
+		-f.x, -f.y, -f.z,   dot(f, eye),
+		0.0f, 0.0f, 0.0f,   1.0f
 	};
 	return view;
 }
 
+t_mat4 perspective4(float fov_deg, float aspect, float near, float far)
+{
+	float f = 1.0f / tanf((fov_deg * 0.5f) * M_PI / 180.0f);
+	return (t_mat4){
+		f / aspect, 0, 0, 0,
+		0, f, 0, 0,
+		0, 0, (far + near) / (near - far), (2 * far * near) / (near - far),
+		0, 0, -1, 0
+	};
+}
+
 t_mat4	world_4(t_vec3 translate, t_vec3 rotate, t_vec3 scale)
 {
-//	World matrix = Translate * (Rotate * Scale)
 	return mat_mul4(translate4(translate.x, translate.y, translate.z), mat_mul4(
 							rotate_4(rotate.x, rotate.y, rotate.z),
 							scale4(scale.x, scale.y, scale.z)));
@@ -173,18 +187,18 @@ t_mat4	transform_world_matrix(t_render_state state, int width, int height)
 {
 	t_mat4	translation_center;
 	t_mat4	translation_back;
-	t_model		m;
+	t_model		model;
 	t_camera	cam;
 
 	translation_center = translate4(width / 2, height / 2, 0);
 	translation_back = translate4(-width / 2, -height / 2, 0);
-	m = state.model;
+	model = state.model;
 	cam = state.camera;
+	t_mat4 vp = mat_mul4(perspective4(60.0f, (float)width / height, 0.1f, 100.0f),
+						 look_at4(cam.eye, cam.target, cam.up));
+	t_mat4 final = mat_mul4(vp, world_4(model.translate, model.rotate, model.scale));
 	return mat_mul4(translation_center,
-					mat_mul4(look_at4(cam.eye, cam.target, cam.up),
-					mat_mul4(world_4(m.translate, m.rotate, m.scale),
-							 translation_back))
-					);
+					mat_mul4(final, translation_back));
 }
 
 t_vec3	project_point_vec3(int i, int j, t_point **points)

@@ -79,6 +79,7 @@ int render(void *d)
 	scale = 20;
 	put_ui(data);
 	img = data->images[0];
+	render_background(img, 0x0000aaaa);
 	world_matrix = transform_world_matrix(data->state, img->width, img->height);
 	for (int y = 0; y < (img->height / scale) - 1; y++) {
 		for (int x = 0; x < (img->width / scale) - 1; x++) {
@@ -103,7 +104,6 @@ int render(void *d)
 							data->images[0]->img,
 							200,
 							200);
-	render_background(img, 0x0000aaaa);
 	return EXIT_SUCCESS;
 }
 
