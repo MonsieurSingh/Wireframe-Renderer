@@ -7,6 +7,7 @@
 
 #include "input.h"
 
+//	TODO: A more intuitive method with modifier keys
 int key_handler(int keycode, void *param)
 {
 	t_data *d = (t_data *)param;

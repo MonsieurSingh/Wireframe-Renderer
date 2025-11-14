@@ -11,7 +11,7 @@
 
 static void put_info(t_mlx *minilibx, t_model *xform, int dx, int dy)
 {
-	//TODO
+	//TODO: Display perspective being used
 }
 
 void	put_ui(t_data *data)

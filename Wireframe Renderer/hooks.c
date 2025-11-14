@@ -7,6 +7,7 @@
 
 #include "wireframe.h"
 
+//	TODO: Make it more versative
 int loop_handler(void *param)
 {
 	t_data *data;

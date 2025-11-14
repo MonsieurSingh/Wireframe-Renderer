@@ -6,6 +6,7 @@
 //
 
 #include "matrix.h"
+//	TODO: Seperate this file
 
 t_mat4	identity4(float i)
 {
@@ -185,8 +186,8 @@ t_mat4	world_4(t_vec3 translate, t_vec3 rotate, t_vec3 scale)
 
 t_mat4	transform_world_matrix(t_render_state state, int width, int height)
 {
-	t_mat4	translation_center;
-	t_mat4	translation_back;
+	t_mat4		translation_center;
+	t_mat4		translation_back;
 	t_model		model;
 	t_camera	cam;
 
