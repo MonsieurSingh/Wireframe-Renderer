@@ -136,7 +136,7 @@ int create_points(const char *argv[], t_map **map)
 	if (!fp)
 	{
 		fprintf(stderr, "%s: %s\n", path, strerror(errno));
-		return 1;
+		return EXIT_FAILURE;
 	}
 	if (allocate_points(fp, map))
 		return EXIT_FAILURE;
@@ -147,14 +147,18 @@ int create_points(const char *argv[], t_map **map)
 
 void	print_map(t_map *map)
 {
-	for (int i = 0; i < map->height; i++) {
-		for (int j = 0; j < map->width; j++) {
+	for (int i = 0; i < map->height; i++)
+	{
+		for (int j = 0; j < map->width; j++)
+		{
 			printf("%#010x ", map->points[i][j].color);
 		}
 		printf("\n");
 	}
-	for (int i = 0; i < map->height; i++) {
-		for (int j = 0; j < map->width; j++) {
+	for (int i = 0; i < map->height; i++)
+	{
+		for (int j = 0; j < map->width; j++)
+		{
 			printf("%3hd", map->points[i][j].z);
 		}
 		printf("\n");

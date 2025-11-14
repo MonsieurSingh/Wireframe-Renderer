@@ -31,14 +31,14 @@ static int	count_tokens_ws(const char *s)
 	in_token = 0;
 	if (s == NULL)
 		return 0;
-	for (const char *p = s; *p; ++p)
+	for (const char *p = s; *p; p++)
 	{
 		if (isspace((unsigned char)*p))
 			in_token = 0;
 		else if (!in_token)
 		{
 			in_token = 1;
-			++count;
+			count++;
 		}
 	}
 	return count;

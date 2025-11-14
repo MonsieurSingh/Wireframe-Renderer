@@ -42,7 +42,7 @@ void	image_add(t_data *data, int width, int height)
 void	image_destroy_all(t_data *data)
 {
 	int		i;
-	
+
 	i = 0;
 	while (i < g_img_capacity && data->images[i] != NULL)
 	{

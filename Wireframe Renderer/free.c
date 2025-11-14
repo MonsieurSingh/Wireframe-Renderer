@@ -7,6 +7,7 @@
 
 #include "wireframe.h"
 
+//	TODO: Add functions to destroy and kill processes
 static void free_points_rows(t_map *map)
 {
 	if (!map || !map->points)

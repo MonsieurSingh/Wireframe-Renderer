@@ -7,6 +7,7 @@
 
 #include "render.h"
 
+//	TODO: Use a better color interpolation method
 int interpolateColor(int color1, int color2, float t)
 {
 	int r1 = (color1 >> 16) & 0xFF;
@@ -36,7 +37,7 @@ void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 	}
 }
 
-
+//	TODO: Just use Bresenham's line algorithm
 void plotLine(t_image *image, int x0, int y0, int x1, int y1, int color1, int color2)
 {
 	int dx = abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
@@ -60,10 +61,10 @@ void plotLine(t_image *image, int x0, int y0, int x1, int y1, int color1, int co
 
 void	render_background(t_image *img, int color)
 {
-	for (int i = 0; i < img->width; i++) {
-		for (int j = 0; j < img->height; j++) {
+	for (int i = 0; i < img->width; i++)
+	{
+		for (int j = 0; j < img->height; j++)
 			my_mlx_pixel_put(img, i, j, color);
-		}
 	}
 }
 
