@@ -18,9 +18,7 @@
 #include <string.h>
 
 #include "../minilibx_macos/mlx.h"
-
 #include "matrix.h"
-#include "input.h"
 
 typedef struct s_map
 {
@@ -63,6 +61,8 @@ typedef struct s_data
 	t_image			**images;
 	t_render_state	state;
 }	t_data;
+
+#include "input.h"
 
 int		verify_input(int argc, const char *argv[], t_map **map);
 int		create_points(const char *argv[], t_map **map);
