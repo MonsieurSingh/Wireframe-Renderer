@@ -10,8 +10,8 @@
 //	TODO: Make it more versative
 int loop_handler(void *param)
 {
-	t_data *data;
-	
+	t_data	*data;
+
 	data = (t_data *)param;
 	render(data);
 	return (EXIT_SUCCESS);
@@ -19,5 +19,6 @@ int loop_handler(void *param)
 
 int exit_handler(void *param)
 {
+	(void)param;
 	exit(EXIT_SUCCESS);
 }

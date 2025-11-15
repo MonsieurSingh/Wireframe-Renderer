@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B337BD862EC93CC7001851FF /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = B337BD852EC93CC7001851FF /* Makefile */; };
 		B3DDC10B2EBFF335006180C5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DDC10A2EBFF335006180C5 /* AppKit.framework */; };
 		B3DDC10D2EBFF33A006180C5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DDC10C2EBFF33A006180C5 /* OpenGL.framework */; };
 		B3DDC10F2EBFF345006180C5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DDC10E2EBFF345006180C5 /* CoreFoundation.framework */; };
@@ -36,6 +37,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B337BD822EC93C85001851FF /* CODE_OF_CONDUCT.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.MD; sourceTree = "<group>"; };
+		B337BD832EC93C85001851FF /* LICENSE.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.MD; sourceTree = "<group>"; };
+		B337BD842EC93C85001851FF /* SECURITY.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SECURITY.MD; sourceTree = "<group>"; };
+		B337BD852EC93CC7001851FF /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		B3645DAB2EBFCAEE002C8C9F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3C8881A2EBEBD6100988D28 /* Wireframe Renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Wireframe Renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DDC10A2EBFF335006180C5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -49,9 +54,9 @@
 			path = test_maps;
 			sourceTree = "<group>";
 		};
-		B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */ = {
+		B3C8881C2EBEBD6100988D28 /* src */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Wireframe Renderer";
+			path = src;
 			sourceTree = "<group>";
 		};
 		B3D9FB922EBFCD5100760681 /* includes */ = {
@@ -84,10 +89,14 @@
 			isa = PBXGroup;
 			children = (
 				B3645DAB2EBFCAEE002C8C9F /* .gitignore */,
+				B337BD822EC93C85001851FF /* CODE_OF_CONDUCT.MD */,
+				B337BD852EC93CC7001851FF /* Makefile */,
+				B337BD832EC93C85001851FF /* LICENSE.MD */,
+				B337BD842EC93C85001851FF /* SECURITY.MD */,
 				B3F729BD2EC0FFA30073EB4E /* minilibx_macos */,
 				B3D9FB922EBFCD5100760681 /* includes */,
 				B3645DAA2EBF5B9D002C8C9F /* test_maps */,
-				B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */,
+				B3C8881C2EBEBD6100988D28 /* src */,
 				B3D9FB962EBFD17700760681 /* Frameworks */,
 				B3C8881B2EBEBD6100988D28 /* Products */,
 			);
@@ -148,7 +157,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				B3645DAA2EBF5B9D002C8C9F /* test_maps */,
-				B3C8881C2EBEBD6100988D28 /* Wireframe Renderer */,
+				B3C8881C2EBEBD6100988D28 /* src */,
 				B3D9FB922EBFCD5100760681 /* includes */,
 			);
 			name = "Wireframe Renderer";
@@ -200,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B337BD862EC93CC7001851FF /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -54,6 +54,8 @@ int mouse_handler(int button, int x, int y, void *param)
 {
 	t_data	*d;
 
+	(void)x;
+	(void)y;
 	d = (t_data *)param;
 	if (button == 4)
 	{
