@@ -37,27 +37,53 @@ void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 	}
 }
 
-//	TODO: Just use Bresenham's line algorithm
+float	smoothstep(float t)
+{
+	return t * t * (3 - 2 * t);
+}
+
+//	TODO: Add optimisations
+//	Remove the sqrt
+//	Ingeger only interpolation (no floats)
 void plotLine(t_image *image, int x0, int y0, int x1, int y1, int color1, int color2)
 {
-	int dx = abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
-	int dy = -abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
-	int err = dx + dy, e2;
-	
-	int total_distance = abs(x1 - x0) + abs(y1 - y0);
-	
+	int	sx;
+	int	sy;
+	int	dx;
+	int	dy;
+	int	err;
+	int	e2;
+	int	total_distance;
+	int	step;
+
+	dx = abs(x1 - x0);
+	dy = -abs(y1 - y0);
+	err = dx + dy;
+	sx = (x0 < x1) - (x0 > x1);
+	sy = (y0 < y1) - (y0 > y1);
+	total_distance = (int)sqrt((dx * dx) + (dy * dy));
+	step = 0;
 	while (1)
 	{
-		float t = (float)(abs(x0 - x1) + abs(y0 - y1)) / total_distance;
-		int color = interpolateColor(color1, color2, t);
-		my_mlx_pixel_put(image, x0, y0, color);
-		if (x0 == x1 && y0 == y1) break;
-		
+		if (x0 == x1 && y0 == y1)
+			break;
+		float t = (float)step / total_distance;
+		my_mlx_pixel_put(image, x0, y0, interpolateColor(color1, color2, smoothstep(t)));
 		e2 = 2 * err;
-		if (e2 >= dy) { err += dy; x0 += sx; }
-		if (e2 <= dx) { err += dx; y0 += sy; }
+		if (e2 >= dy)
+		{
+			err += dy;
+			x0 += sx;
+		}
+		if (e2 <= dx)
+		{
+			err += dx;
+			y0 += sy;
+		}
+		step++;
 	}
 }
+
 
 void	render_background(t_image *img, int color)
 {
