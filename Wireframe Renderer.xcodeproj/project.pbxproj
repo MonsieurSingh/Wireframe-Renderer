@@ -37,10 +37,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B337BD822EC93C85001851FF /* CODE_OF_CONDUCT.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.MD; sourceTree = "<group>"; };
 		B337BD832EC93C85001851FF /* LICENSE.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.MD; sourceTree = "<group>"; };
 		B337BD842EC93C85001851FF /* SECURITY.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SECURITY.MD; sourceTree = "<group>"; };
 		B337BD852EC93CC7001851FF /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		B337BE1D2EC9477D001851FF /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		B337BE1E2EC9477D001851FF /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		B337BE1F2EC947CD001851FF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3645DAB2EBFCAEE002C8C9F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3C8881A2EBEBD6100988D28 /* Wireframe Renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Wireframe Renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DDC10A2EBFF335006180C5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -88,8 +90,10 @@
 		B3C888112EBEBD6100988D28 = {
 			isa = PBXGroup;
 			children = (
+				B337BE1F2EC947CD001851FF /* README.md */,
 				B3645DAB2EBFCAEE002C8C9F /* .gitignore */,
-				B337BD822EC93C85001851FF /* CODE_OF_CONDUCT.MD */,
+				B337BE1D2EC9477D001851FF /* CODE_OF_CONDUCT.md */,
+				B337BE1E2EC9477D001851FF /* CONTRIBUTING.md */,
 				B337BD852EC93CC7001851FF /* Makefile */,
 				B337BD832EC93C85001851FF /* LICENSE.MD */,
 				B337BD842EC93C85001851FF /* SECURITY.MD */,
